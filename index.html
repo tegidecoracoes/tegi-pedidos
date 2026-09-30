@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TEGI · Monte a decoração da festa</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F0FF;--card:#fff;--ink:#2B2A5B;--mute:#6b6a8f;--line:#dcd6f5;--acc:#FF7A2F;--acc-ink:#fff;--sel:#FFF0E5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b3a;--card:#27265a;--ink:#f3f0ff;--mute:#b5b3dd;--line:#403f7a;--sel:#4a3563}}
+:root[data-theme="dark"]{--bg:#1c1b3a;--card:#27265a;--ink:#f3f0ff;--mute:#b5b3dd;--line:#403f7a;--sel:#4a3563}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Nunito,system-ui,sans-serif}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 110px}
+h1,h2{font-family:Fredoka,system-ui,sans-serif;font-weight:600;margin:0}
+h1{font-size:30px;line-height:1.15}
+h2{font-size:22px;margin:22px 0 6px}
+p.sub{color:var(--mute);margin:6px 0 0}
+.bar{display:flex;gap:6px;margin:18px 0 0}
+.bar i{flex:1;height:8px;border-radius:8px;background:var(--line)}
+.bar i.on{background:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.opt{border:2px solid var(--line);background:var(--card);border-radius:18px;padding:14px;text-align:left;font:inherit;color:inherit;cursor:pointer;min-height:96px}
+.opt:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.opt.sel{border-color:var(--acc);background:var(--sel)}
+.opt .e{font-size:34px;display:block}
+.opt b{display:block;font-weight:800}
+.opt small{color:var(--mute)}
+.sub-opts{background:var(--card);border:2px solid var(--acc);border-radius:18px;padding:4px 16px 16px;margin-top:16px}
+.sub-opts h3{font:600 18px Fredoka,sans-serif;margin:16px 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:2px solid var(--line);background:transparent;color:var(--ink);font:600 15px Nunito,sans-serif;border-radius:999px;padding:9px 14px;cursor:pointer}
+.chip.sel{border-color:var(--acc);background:var(--acc);color:var(--acc-ink)}
+.list{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.list .opt{display:flex;gap:12px;align-items:center;min-height:0}
+.list .opt .e{font-size:28px}
+.price{margin-left:auto;font-weight:800;white-space:nowrap}
+label{display:block;font-weight:800;margin:16px 0 6px}
+input,select,textarea{width:100%;font:inherit;color:inherit;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.nav div{max-width:640px;margin:0 auto;display:flex;gap:10px}
+button.b{flex:1;font:800 16px Nunito,sans-serif;border-radius:14px;padding:14px;border:2px solid var(--acc);cursor:pointer}
+.pri{background:var(--acc);color:var(--acc-ink)}
+.sec{background:transparent;color:var(--ink);border-color:var(--line)!important;flex:0 0 35%!important}
+button:disabled{opacity:.45;cursor:not-allowed}
+.sum{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}
+.sum dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+.sum dt{color:var(--mute)}.sum dd{margin:0;font-weight:800;text-align:right}
+.tot{display:flex;justify-content:space-between;border-top:2px dashed var(--line);margin-top:12px;padding-top:12px;font-family:Fredoka,sans-serif;font-size:22px}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.chk{display:flex;align-items:center;gap:12px}
+.chk input{width:22px;height:22px;accent-color:#FF7A2F}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.thumbs button{padding:0;border:0;border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:var(--line)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-more{display:inline-block;margin-top:10px;font-weight:800;color:var(--acc)}
+.lb{position:fixed;inset:0;background:rgba(20,20,45,.88);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.lb img{max-width:100%;max-height:82%;border-radius:14px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.brand svg{height:64px;width:auto;display:block}
+.brand small{color:var(--mute);font-weight:600;display:block;margin-top:2px}
+.soc{display:flex;gap:8px}
+.soc a{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);border:2px solid var(--line);background:var(--card);border-radius:999px;font-weight:800;padding:9px 14px}
+.soc a svg{height:20px;width:20px}
+.contact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-4px 0 18px}
+.contact a.wa{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#1FAF5A;color:#fff;border-radius:999px;font-weight:800;padding:11px 18px}
+.contact span{color:var(--mute);font-weight:600;font-size:14px}
+.contact span b{color:var(--ink)}
+a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.opt.sel{border-color:var(--acc);background:var(--sel)}
+.opt .e{font-size:34px;display:block}
+.opt b{display:block;font-weight:800}
+.opt small{color:var(--mute)}
+.sub-opts{background:var(--card);border:2px solid var(--acc);border-radius:18px;padding:4px 16px 16px;margin-top:16px}
+.sub-opts h3{font:600 18px Fredoka,sans-serif;margin:16px 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:2px solid var(--line);background:transparent;color:var(--ink);font:600 15px Nunito,sans-serif;border-radius:999px;padding:9px 14px;cursor:pointer}
+.chip.sel{border-color:var(--acc);background:var(--acc);color:var(--acc-ink)}
+.list{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.list .opt{display:flex;gap:12px;align-items:center;min-height:0}
+.list .opt .e{font-size:28px}
+.price{margin-left:auto;font-weight:800;white-space:nowrap}
+label{display:block;font-weight:800;margin:16px 0 6px}
+input,select,textarea{width:100%;font:inherit;color:inherit;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.nav div{max-width:640px;margin:0 auto;display:flex;gap:10px}
+button.b{flex:1;font:800 16px Nunito,sans-serif;border-radius:14px;padding:14px;border:2px solid var(--acc);cursor:pointer}
+.pri{background:var(--acc);color:var(--acc-ink)}
+.sec{background:transparent;color:var(--ink);border-color:var(--line)!important;flex:0 0 35%!important}
+button:disabled{opacity:.45;cursor:not-allowed}
+.sum{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}
+.sum dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+.sum dt{color:var(--mute)}.sum dd{margin:0;font-weight:800;text-align:right}
+.tot{display:flex;justify-content:space-between;border-top:2px dashed var(--line);margin-top:12px;padding-top:12px;font-family:Fredoka,sans-serif;font-size:22px}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.chk{display:flex;align-items:center;gap:12px}
+.chk input{width:22px;height:22px;accent-color:#FF7A2F}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.thumbs button{padding:0;border:0;border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:var(--line)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-more{display:inline-block;margin-top:10px;font-weight:800;color:var(--acc)}
+.lb{position:fixed;inset:0;background:rgba(20,20,45,.88);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.lb img{max-width:100%;max-height:82%;border-radius:14px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.brand svg{height:64px;width:auto;display:block}
+.brand small{color:var(--mute);font-weight:600;display:block;margin-top:2px}
+.soc{display:flex;gap:8px}
+.soc a{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--ink);border:2px solid var(--line);background:var(--card);border-radius:999px;font-weight:800;padding:9px 14px}
+.soc a svg{height:20px;width:20px}
+.foot{margin-top:36px;padding-top:20px;border-top:2px dashed var(--line);text-align:center}
+.foot p{margin:0 0 12px}
+.foot a.wa{background:#1FAF5A;border-color:#1FAF5A;color:#fff;padding:12px 20px}
+.foot .soc{justify-content:center;margin-top:14px}
+a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){.step{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(8px)}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand"><div><svg viewBox="0 0 250 78" role="img" aria-label="TEGI decoração infantil" xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Fredoka,system-ui,sans-serif" font-weight="600" font-size="38" text-anchor="middle">
+    <path d="M30 56 q-6 12 2 20 M92 56 q6 12 -2 20 M154 56 q-6 12 2 20 M216 56 q6 12 -2 20" stroke="#9a96c9" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="30" cy="30" r="27" fill="#FF7A2F"/><ellipse cx="20" cy="18" rx="6" ry="4" fill="#fff" opacity=".45" transform="rotate(-30 20 18)"/><text x="30" y="43" fill="#fff">T</text>
+    <circle cx="92" cy="30" r="27" fill="#2EC4A0"/><ellipse cx="82" cy="18" rx="6" ry="4" fill="#fff" opacity=".45" transform="rotate(-30 82 18)"/><text x="92" y="43" fill="#fff">E</text>
+    <circle cx="154" cy="30" r="27" fill="#FF5FA2"/><ellipse cx="144" cy="18" rx="6" ry="4" fill="#fff" opacity=".45" transform="rotate(-30 144 18)"/><text x="154" y="43" fill="#fff">G</text>
+    <circle cx="216" cy="30" r="27" fill="#FFC83D"/><ellipse cx="206" cy="18" rx="6" ry="4" fill="#fff" opacity=".5" transform="rotate(-30 206 18)"/><text x="216" y="43" fill="#2B2A5B">I</text>
+  </g></svg><small>Decoração e aluguel de festas infantis</small></div><div class="soc"><a href="https://www.instagram.com/tegidecor/" target="_blank" rel="noopener" aria-label="Instagram da TEGI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a><a href="https://www.threads.com/@tegidecor?xmt=AQG0bS2w2GGawlcRUJFAppW1RmXpOHi8mLqkajaTI3FGeH4" target="_blank" rel="noopener" aria-label="Threads da TEGI"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><text x="12" y="16.5" text-anchor="middle" font-size="12" font-weight="800" fill="currentColor" font-family="Nunito,sans-serif">@</text></svg>Threads</a></div></header>
+  <div class="contact"><a class="wa" href="https://wa.me/5511986005582?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a><span>Contato e orçamentos:<br><b>+55 11 98600-5582</b></span></div>
+  <h1>Monte a decoração da festa 🎈</h1>
+  <p class="sub">Escolha o tema, o tipo de decoração e a data. Nós confirmamos a disponibilidade pelo WhatsApp.</p>
+  <div class="bar" id="bar" aria-hidden="true"></div>
+  <div id="step" class="step" aria-live="polite"></div>
+</div>
+<div class="nav"><div>
+  <button class="b sec" id="back">Voltar</button>
+  <button class="b pri" id="next">Continuar</button>
+</div></div>
+
+<script>
+// ===== EDITE AQUI: seus dados =====
+const WHATSAPP = "5511986005582"; // +55 11 98600-5582
+const THEMES = [["🦄","Unicórnio"],["🦸","Super-heróis"],["🦕","Dinossauros"],["👸","Princesas"],["🚀","Espaço"],["🐘","Safari"],["🧜‍♀️","Fundo do mar"],["🎪","Circo"],["✨","Outro"]];
+// Opções que aparecem depois de escolher o tema (mesma ordem de THEMES)
+const THEME_OPTS = [
+ {style:["Rosa e lilás","Arco-íris","Pastel","Dourado"],items:["Chifre gigante","Nuvens","Estrelas","Flores"]},
+ {style:["Marvel","DC","Liga mista","Cores clássicas"],items:["Homem-Aranha","Batman","Hulk","Capitão América","Superman"]},
+ {style:["Verde selva","Colorido","Baby dino","Realista"],items:["T-Rex","Ovos de dinossauro","Vulcão","Folhagens"]},
+ {style:["Clássico","Rosa e dourado","Realeza azul","Jardim encantado"],items:["Castelo","Carruagem","Coroa","Rosas"]},
+ {style:["Astronauta","Planetas coloridos","Noite estrelada","Foguete retrô"],items:["Foguete","Lua","Planetas","Astronauta"]},
+ {style:["Terra e verde","Baby safari","Colorido","Aventura"],items:["Leão","Girafa","Elefante","Folhagens"]},
+ {style:["Azul e turquesa","Sereia rosa","Oceano profundo","Praia"],items:["Sereia","Conchas","Peixes","Polvo"]},
+ {style:["Vermelho e azul","Circo vintage","Colorido","Baby circo"],items:["Tenda","Palhaço","Pipoca e algodão-doce","Leões e elefantes"]}
+];
+// ==================================
+
+const S = {step:0,theme:null,style:null,tItems:[],customTheme:"",customStyle:"",customItem:"",date:"",time:"",place:"",name:"",obs:""};
+const STEPS = ["Tema","Data e local","Resumo"];
+const $ = s => document.querySelector(s);
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// Fotos por tema (miniaturas em base64). Chave = nome do tema, ex.: "Princesas": ["data:image/jpeg;base64,...", ...]
+const THEME_PHOTOS = {};
+const IG_URL = "https://www.instagram.com/tegidecor/";
+const OTHER = THEMES.length-1;
+const themeName = () => S.theme===OTHER ? "Outro: "+S.customTheme.trim() : THEMES[S.theme][1];
+const styleName = () => {const o=THEME_OPTS[S.theme]; if(S.style===null) return ""; return S.style===o.style.length ? "Outro: "+S.customStyle.trim() : o.style[S.style]};
+const itemsName = () => {const o=THEME_OPTS[S.theme]; return S.tItems.map(i=>i===o.items.length?"Outro: "+S.customItem.trim():o.items[i]).join(", ")};
+
+function valid(){
+  if(S.step===0){
+    if(S.theme===null) return false;
+    if(S.theme===OTHER) return !!S.customTheme.trim();
+    const o=THEME_OPTS[S.theme];
+    if(S.style!==null && S.style===o.style.length && !S.customStyle.trim()) return false;
+    if(S.tItems.includes(o.items.length) && !S.customItem.trim()) return false;
+    return true;
+  }
+  if(S.step===1) return S.date && S.place.trim() && S.name.trim();
+  return true;
+}
+function render(){
+  $("#bar").innerHTML = STEPS.map((_,i)=>`<i class="${i<=S.step?"on":""}"></i>`).join("");
+  const el = $("#step"); let h = `<h2>${STEPS[S.step]==="Resumo"?"Confira seu pedido":["Qual é o tema da festa?","Quando e onde vai ser?"][S.step]}</h2>`;
+  if(S.step===0){
+    h += `<div class="grid">`+THEMES.map((t,i)=>`<button class="opt ${S.theme===i?"sel":""}" data-t="${i}" ${i===OTHER?'style="grid-column:1/-1;min-height:70px"':""}><span class="e">${t[0]}</span><b>${t[1]}</b></button>`).join("")+`</div>`;
+    if(S.theme===OTHER){
+      h += `<div class="sub-opts" id="subopts"><label for="customTheme">Descreva o tema que você deseja</label><textarea id="customTheme" rows="3" placeholder="Ex.: Bluey, futebol, fazendinha…">${esc(S.customTheme)}</textarea></div>`;
+    } else if(S.theme!==null){
+      const o=THEME_OPTS[S.theme], n=o.style.length, m=o.items.length;
+      const ph=THEME_PHOTOS[THEMES[S.theme][1]]||[];
+      const gal=ph.length?`<h3>Festas que já fizemos 📸</h3><div class="thumbs">`+ph.map((u,i)=>`<button data-p="${i}" aria-label="Ampliar foto ${i+1}"><img src="${u}" alt="Decoração ${THEMES[S.theme][1]} da TEGI" loading="lazy"></button>`).join("")+`</div><a class="ig-more" href="${IG_URL}" target="_blank" rel="noopener">Ver mais no Instagram →</a>`:"";
+      h += `<div class="sub-opts" id="subopts">${gal}<h3>Estilo ${THEMES[S.theme][0]} (opcional)</h3><div class="chips">`+[...o.style,"Outro"].map((x,i)=>`<button class="chip ${S.style===i?"sel":""}" data-s="${i}">${x}</button>`).join("")+`</div>`
+       +(S.style===n?`<label for="customStyle">Descreva o estilo que você deseja</label><input id="customStyle" value="${esc(S.customStyle)}">`:"")
+       +`<h3>Elementos que você quer (opcional)</h3><div class="chips">`+[...o.items,"Outro"].map((x,i)=>`<button class="chip ${S.tItems.includes(i)?"sel":""}" data-i="${i}">${x}</button>`).join("")+`</div>`
+       +(S.tItems.includes(m)?`<label for="customItem">Descreva o que você deseja</label><input id="customItem" value="${esc(S.customItem)}">`:"")+`</div>`;
+    }
+  } else if(S.step===1){
+    const min = new Date(Date.now()+864e5*7).toISOString().slice(0,10);
+    h += `<label for="name">Seu nome</label><input id="name" autocomplete="name" value="${esc(S.name)}">
+    <label for="date">Data da festa</label><input id="date" type="date" min="${min}" value="${S.date}">
+    <label for="time">Horário de montagem</label><select id="time"><option value="">Escolha…</option>${["08:00","10:00","12:00","14:00","16:00"].map(x=>`<option ${S.time===x?"selected":""}>${x}</option>`).join("")}</select>
+    <label for="place">Endereço ou bairro do evento</label><input id="place" autocomplete="street-address" value="${esc(S.place)}">
+    <label for="obs">Observações (opcional: quantidade de convidados, cores, nome e idade do aniversariante…)</label><textarea id="obs" rows="3">${esc(S.obs)}</textarea>`;
+  } else {
+    const [te,tn]=THEMES[S.theme];
+    h += `<div class="sum"><dl><dt>Tema</dt><dd>${esc(themeName())}</dd>${S.theme===OTHER?"":`<dt>Estilo</dt><dd>${esc(styleName())||"Não informado"}</dd><dt>Elementos</dt><dd>${esc(itemsName())||"Nenhum"}</dd>`}<dt>Decoração</dt><dd>Completa</dd><dt>Data</dt><dd>${new Date(S.date+"T12:00").toLocaleDateString("pt-BR")}${S.time?" às "+S.time:""}</dd><dt>Local</dt><dd>${esc(S.place)}</dd>${S.obs.trim()?`<dt>Observações</dt><dd>${esc(S.obs)}</dd>`:""}</dl></div><p class="note">Ao enviar, abrimos o WhatsApp com o pedido pronto. O orçamento e a data são confirmados por nós.</p>`;
+  }
+  el.innerHTML = h;
+  $("#back").style.visibility = S.step? "visible":"hidden";
+  $("#next").textContent = S.step===2 ? "Enviar pelo WhatsApp" : "Continuar";
+  $("#next").disabled = !valid();
+  scrollTo(0,0);
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-t]");
+  const pp=e.target.closest("[data-p]");
+  if(pp){const d=document.createElement("div");d.className="lb";d.setAttribute("role","dialog");d.setAttribute("aria-label","Foto ampliada");
+    d.innerHTML=`<img src="${pp.querySelector("img").src}" alt="Foto ampliada"><button class="chip" style="position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:16px;background:#fff">Fechar ✕</button>`;
+    d.onclick=()=>d.remove();document.body.appendChild(d)}
+  const st=e.target.closest("[data-s]"),it=e.target.closest("[data-i]");
+  if(t){const n=+t.dataset.t;if(n!==S.theme){S.theme=n;S.style=null;S.tItems=[];S.customStyle="";S.customItem=""}render();
+    const b=$("#subopts");if(b)b.scrollIntoView({behavior:"smooth",block:"center"})}
+  if(st){const k=+st.dataset.s;S.style=S.style===k?null:k;render();const b=$("#subopts");if(b)b.scrollIntoView({block:"center"})}
+  if(it){const i=+it.dataset.i;S.tItems=S.tItems.includes(i)?S.tItems.filter(v=>v!==i):[...S.tItems,i];
+    if(i===THEME_OPTS[S.theme].items.length){render();const b=$("#customItem")||$("#subopts");if(b)b.scrollIntoView({block:"center"})}
+    else{it.classList.toggle("sel");$("#next").disabled=!valid()}}
+});
+document.addEventListener("input",e=>{
+  const id=e.target.id;
+  if(["name","date","time","place","obs","customTheme","customStyle","customItem"].includes(id)){S[id]=e.target.value;$("#next").disabled=!valid()}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){const l=document.querySelector(".lb");if(l)l.remove()}});
+$("#back").onclick=()=>{S.step--;render()};
+$("#next").onclick=()=>{
+  if(S.step<2){S.step++;render();return}
+  const msg=`Olá! Quero pedir uma decoração 🎉\n\nNome: ${S.name}\nTema: ${themeName()}\n${S.theme===OTHER?"":`Estilo: ${styleName()||"não informado"}\nElementos: ${itemsName()||"nenhum"}\n`}Decoração: Completa\nData: ${new Date(S.date+"T12:00").toLocaleDateString("pt-BR")}${S.time?" às "+S.time:""}\nLocal: ${S.place}\nObs: ${S.obs||"-"}`;
+  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
+};
+render();
+</script>
+</body>
+</html>
